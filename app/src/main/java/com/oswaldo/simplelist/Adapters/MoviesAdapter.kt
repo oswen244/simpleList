@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.movie_item.view.*
 import kotlin.collections.ArrayList
 
 class MoviesAdapter(private val items: ArrayList<Movie>?, val context: Context): RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+    var onItemClick: ((Movie) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -35,7 +36,8 @@ class MoviesAdapter(private val items: ArrayList<Movie>?, val context: Context):
         }
 
         private fun formatDate(date: String?): String? {
-            return date?.substring(0,5)
+            return date?.substring(0,4)
         }
     }
+
 }
